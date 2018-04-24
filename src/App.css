@@ -1,3 +1,14 @@
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eef;
+}
+
 .App {
   text-align: center;
 }
@@ -25,4 +36,16 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.card {
+  margin-bottom: 15px;
+}
+
+.card-header {
+  background-color: rgba(0,0,0,.08);
+}
+
+.card-body {
+  min-height: 210px;
 }
