@@ -14,9 +14,17 @@ class Card extends Component {
     });
   };
 
+  onDone = event => {
+    event.preventDefault();
+    const { units } = this.state;
+    const { onSubmit } = this.props;
+    onSubmit(units);
+    this.setState({ units: '' });
+  };
+
   render() {
     const { units } = this.state;
-    const { isLoading, title, cost, kwh, prompt, onSubmit } = this.props;
+    const { isLoading, title, cost, kwh, prompt } = this.props;
     let result;
     if (!isLoading) {
       result = (
@@ -37,7 +45,7 @@ class Card extends Component {
           <div className="container">
             <div className="row">
               <div className="col">
-                <form>
+                <form onSubmit={this.onDone}>
                   <div className="form-group">
                     <div className="input-group">
                       <input type="text"
@@ -49,7 +57,7 @@ class Card extends Component {
                         <button
                           className="btn btn-outline-primary"
                           type="button"
-                          onClick={_ => onSubmit(units)}>Submit Reading</button>
+                          onClick={this.onDone}>Submit Reading</button>
                       </div>
                     </div>
                   </div>
