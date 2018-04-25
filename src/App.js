@@ -42,7 +42,7 @@ class App extends Component {
 
   calc = (utility, units, url) => {
     this.toggleIsLoading(utility, true);
-    apiRequest(url, { units })
+    apiRequest(url, { units: parseInt(units,10) })
     .then(bill => {
       const utilityBill = {
         ...this.state[utility],
